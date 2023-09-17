@@ -1,13 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Rock | Paper | Scissors -JS Module test</title>
+    <title>Rock | Paper | Scissors - JS Module test</title>
 </head>
+
 <body>
-    
+    <div class="playGround">
+
+        <div class="scoreBoard">
+            <div class="name">
+                <h5>ROCK</h5>
+                <h5>PAPER</h5>
+                <h5>SCISSORS</h5>
+            </div>
+
+            <div class="scoreCard">
+                <p>COMPUTER SCORE</p>
+                <p class="score1" id="computerScore">0</p>
+
+            </div>
+            <div class="scoreCard">
+                <p>YOUR <br> SCORE</p>
+                <p class="score1" id="yourScore">0</p>
+            </div>
+        </div>
+
+        <div class="playArea">
+            <div class="l1 line"></div>
+            <div class="l2 line"></div>
+            <div class="l3 line"></div>
+
+            <div class="rock-btn  btn" data-selection="rock">
+                <img src="Resources/icons/rock.svg" alt="" srcset="">
+            </div>
+            <div class="paper-btn btn" data-selection="paper">
+                <img src="Resources/icons/paper.svg" alt="" srcset="">
+            </div>
+            <div class="scissor-btn btn" data-selection="scissor">
+                <img src="Resources/icons/scissor.svg" alt="" srcset="">
+            </div>
+
+
+        </div>
+
+        <div class="showResult">
+            <div class="box">
+                <!-- <p class="btn-text">YOU PICKED</p> -->
+                <div class="rock-btn  btn">
+                    <img src="Resources/icons/rock.svg" alt="" srcset="">
+                </div>
+            </div>
+            <div class="text">
+                <p><span>YOU WIN</span><br> AGAINST PC</p>
+                <button>PLAY AGAIN</button>
+            </div>
+            <div class="box" id="parent">
+                <div class="d1 effect" id="eff">
+                    <div class="d2 effect">
+                        <!-- <P class="btn-text">PC PICKED</P> -->
+                        <div class="d3 effect">
+            
+                            <div class="paper-btn btn">
+                                <img src="Resources/icons/paper.svg" alt="" srcset="">
+                            </div>
+            
+                        </div>
+                    </div>
+                </div>
+
+      
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="rules-popup">
+        <button class="close-popup">X</button>
+        <h3>Game Rules</h3>
+        <ul>
+            <li>Rock beats scissors, scissors beat paper, and paper beats rock.</li>
+            <li>Agree ahead of time whether you’ll count off “rock, paper, scissors, shoot” or just “rock, paper,
+                scissors.”</li>
+            <li>Use rock, paper, scissors to settle minor decisions or simply play to pass the time</li>
+            <li>If both players lay down the same hand, each player lays down another hand</li>
+        </ul>
+    </div>
+    <button class="rules-btn" id="rules">RULES</button>
+
+
+
+
     <script src="script.js"></script>
 </body>
+
 </html>
