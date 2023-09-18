@@ -76,8 +76,8 @@
 
     </div>
 
-    <div class="rules-popup">
-        <button class="close-popup">X</button>
+    <div class="rules-popup" id="rulesModal">
+        <button class="close-popup" id="closeModal">X</button>
         <h3>Game Rules</h3>
         <ul>
             <li>Rock beats scissors, scissors beat paper, and paper beats rock.</li>
@@ -87,7 +87,7 @@
             <li>If both players lay down the same hand, each player lays down another hand</li>
         </ul>
     </div>
-    <button class="rules-btn" id="rules">RULES</button>
+    <button class="rules-btn" id="rules-btn" onclick="openModal()">RULES</button>
 
 
 

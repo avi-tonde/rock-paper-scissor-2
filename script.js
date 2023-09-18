@@ -6,7 +6,7 @@ userChoice.forEach(getUserSelection => {
         const computerSelection = computerChoice(); //get computer selection
 
         checkWinner(userSelection, computerSelection); // checking winner
-        
+
         document.getElementById("userChoice").src = "Resources/icons/" + userSelection + ".svg";
         document.getElementById("pcChoice").src = "Resources/icons/" + computerSelection + ".svg";
     })
@@ -18,9 +18,14 @@ const showResult = document.getElementById('showResult');
 const result = document.getElementById('result');
 const pcScoreDom = document.getElementById('pcScore');
 const yourScoreDom = document.getElementById('yourScore');
+const modal = document.getElementById('rulesModal');
+const closeModal = document.getElementById('closeModal');
 
-
-let scores = JSON.parse(localStorage.getItem('score'));
+if (!localStorage.getItem('score')) {
+    let scores = { 'yourScore': 0, 'pcScore': 0 };
+    localStorage.setItem("score", JSON.stringify(scores));
+}
+var scores = JSON.parse(localStorage.getItem('score'));
 pcScoreDom.innerText = scores.pcScore;
 yourScoreDom.innerText = scores.yourScore;
 
@@ -92,30 +97,18 @@ function updateResult(classname, action, winner) {
         if (winner == 'you') {
 
             result.innerText = "YOU WIN";
-            if (localStorage.getItem('score')) {
-                let scores = JSON.parse(localStorage.getItem('score'));
-                scores.yourScore = scores.yourScore + 1;
-                localStorage.setItem('score', JSON.stringify(scores));
-            } else {
-                let scores = { 'yourScore': 1, 'pcScore': 0 };
-                localStorage.setItem("score", JSON.stringify(scores));
-            }
+            scores.yourScore = scores.yourScore + 1;
+            localStorage.setItem('score', JSON.stringify(scores));
+
 
         } else if (winner == 'pc') {
 
             result.innerText = "YOU LOST";
-            if (localStorage.getItem('score')) {
-                let scores = JSON.parse(localStorage.getItem('score'));
-                scores.pcScore = scores.pcScore + 1;
-                localStorage.setItem('score', JSON.stringify(scores));
-            } else {
-                let scores = { 'yourScore': 0, 'pcScore': 1 };
-                localStorage.setItem("score", JSON.stringify(scores));
-            }
+            scores.pcScore = scores.pcScore + 1;
+            localStorage.setItem('score', JSON.stringify(scores));
 
         }
-        
-        let scores = JSON.parse(localStorage.getItem('score'));
+
         pcScoreDom.innerText = scores.pcScore;
         yourScoreDom.innerText = scores.yourScore;
 
@@ -143,10 +136,12 @@ function playAgain() {
 
 }
 
-function openModel() {
 
+
+function openModal() {
+    rulesModal.style.display = "block";
 }
 
-function closeModel() {
-
+closeModal.onclick = function closeModal() {
+    rulesModal.style.display = "none";
 }
