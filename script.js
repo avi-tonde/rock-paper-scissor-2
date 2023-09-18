@@ -6,17 +6,23 @@ userChoice.forEach(getUserSelection => {
         const computerSelection = computerChoice(); //get computer selection
 
         checkWinner(userSelection, computerSelection); // checking winner
-
+        
         document.getElementById("userChoice").src = "Resources/icons/" + userSelection + ".svg";
         document.getElementById("pcChoice").src = "Resources/icons/" + computerSelection + ".svg";
     })
 })
 
+
 const playArea = document.getElementById('playArea');
 const showResult = document.getElementById('showResult');
 const result = document.getElementById('result');
+const pcScoreDom = document.getElementById('pcScore');
+const yourScoreDom = document.getElementById('yourScore');
 
 
+let scores = JSON.parse(localStorage.getItem('score'));
+pcScoreDom.innerText = scores.pcScore;
+yourScoreDom.innerText = scores.yourScore;
 
 //Create Computer Choice
 function computerChoice() {
@@ -61,31 +67,60 @@ function checkWinner(userSelection, computerSelection) {
 function computerWin() {
     playArea.style.display = "none";
     showResult.style.display = "flex";
-    btnEffect('.pc-win', 'add');
+    updateResult('.pc-win', 'add', 'pc');
 }
 function youWin() {
     playArea.style.display = "none";
     showResult.style.display = "flex";
-    btnEffect('.you-win', 'add');
+    updateResult('.you-win', 'add', 'you');
+
 }
 function tie() {
     playArea.style.display = "none";
     showResult.style.display = "flex";
     result.innerText = "TIE";
-    // btnEffect('.you-win', 'add');
+    // updateResult('.you-win', 'add');
 }
 
-function btnEffect(classname, action) {
+function updateResult(classname, action, winner) {
     if (action == 'add') {
+
         const elements = document.querySelectorAll(classname);
         elements[0].classList.add('bgc3');
         elements[1].classList.add('bgc2');
         elements[2].classList.add('bgc1');
-        if (classname == '.you-win') {
+        if (winner == 'you') {
+
             result.innerText = "YOU WIN";
-        } else if (classname == '.pc-win') {
+            if (localStorage.getItem('score')) {
+                let scores = JSON.parse(localStorage.getItem('score'));
+                scores.yourScore = scores.yourScore + 1;
+                localStorage.setItem('score', JSON.stringify(scores));
+            } else {
+                let scores = { 'yourScore': 1, 'pcScore': 0 };
+                localStorage.setItem("score", JSON.stringify(scores));
+            }
+
+        } else if (winner == 'pc') {
+
             result.innerText = "YOU LOST";
+            if (localStorage.getItem('score')) {
+                let scores = JSON.parse(localStorage.getItem('score'));
+                scores.pcScore = scores.pcScore + 1;
+                localStorage.setItem('score', JSON.stringify(scores));
+            } else {
+                let scores = { 'yourScore': 0, 'pcScore': 1 };
+                localStorage.setItem("score", JSON.stringify(scores));
+            }
+
         }
+        
+        let scores = JSON.parse(localStorage.getItem('score'));
+        pcScoreDom.innerText = scores.pcScore;
+        yourScoreDom.innerText = scores.yourScore;
+
+
+
     }
     else {
         const elements = document.querySelectorAll('.effect');
@@ -103,7 +138,8 @@ function playAgain() {
     playArea.style.display = "flex";
     showResult.style.display = "none";
 
-    btnEffect('', '')
+    updateResult('', '');
+
 
 }
 
