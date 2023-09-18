@@ -59,7 +59,7 @@
             </div>
             <div class="result">
                 <p><span id="result"></span><br> AGAINST PC</p>
-                <button onclick="playAgain()">PLAY AGAIN</button>
+                <button class="replayBtn" onclick="playAgain()">PLAY AGAIN</button>
             </div>
             <div class="box">
                 <div class="bg3 effect pc-win">
@@ -87,7 +87,10 @@
             <li>If both players lay down the same hand, each player lays down another hand</li>
         </ul>
     </div>
-    <button class="rules-btn" id="rules-btn" onclick="openModal()">RULES</button>
+    <div class="btn-container">
+        <button class="rules-btn btns" id="rules-btn" onclick="openModal()">RULES</button>
+        <button class="next-btn btns" id="next-btn" onclick="location.pathname='hurray.html'">NEXT</button>    
+    </div>
 
 
 

@@ -20,11 +20,13 @@ const pcScoreDom = document.getElementById('pcScore');
 const yourScoreDom = document.getElementById('yourScore');
 const modal = document.getElementById('rulesModal');
 const closeModal = document.getElementById('closeModal');
+const nextBtn = document.getElementById('next-btn');
 
 if (!localStorage.getItem('score')) {
     let scores = { 'yourScore': 0, 'pcScore': 0 };
     localStorage.setItem("score", JSON.stringify(scores));
 }
+
 var scores = JSON.parse(localStorage.getItem('score'));
 pcScoreDom.innerText = scores.pcScore;
 yourScoreDom.innerText = scores.yourScore;
@@ -99,6 +101,7 @@ function updateResult(classname, action, winner) {
             result.innerText = "YOU WIN";
             scores.yourScore = scores.yourScore + 1;
             localStorage.setItem('score', JSON.stringify(scores));
+            nextBtn.style.display = "block";
 
 
         } else if (winner == 'pc') {
@@ -130,6 +133,7 @@ function updateResult(classname, action, winner) {
 function playAgain() {
     playArea.style.display = "flex";
     showResult.style.display = "none";
+    nextBtn.style.display = "none";
 
     updateResult('', '');
 

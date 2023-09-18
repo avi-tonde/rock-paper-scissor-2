@@ -55,8 +55,7 @@ body {
 }
 
 .scoreCard .score1 {
-    font-size: 68px;
-    margin: 0.4rem;
+    font-size: 60px;
     color: black;
 }
 
@@ -186,10 +185,8 @@ ul li::before {
     cursor: pointer;
 }
 
-.rules-btn {
-    position: absolute;
-    bottom: 10px;
-    right: 50px;
+.btns {
+
     font-size: 1.5rem;
     padding: 0.1rem 0.5rem;
     border: 2px solid white;
@@ -198,6 +195,24 @@ ul li::before {
     border-radius: 7px;
     cursor: pointer;
 }
+
+.btns:hover {
+    background: rgb(132, 219, 124);
+  
+}
+
+.btn-container {
+    position: absolute;
+    bottom: 10px;
+    right: 50px;
+    display: flex;
+}
+
+.next-btn {
+    display: none;
+    margin-left: 20px;
+}
+
 
 .showResult {
     width: 800px;
@@ -211,9 +226,10 @@ ul li::before {
 
 }
 
-.result{
+.result {
     text-align: center;
 }
+
 .result-btns {
     top: 0;
     right: 0;
@@ -233,11 +249,12 @@ ul li::before {
     letter-spacing: 3.9px;
 }
 
-.showResult button {
-    padding: 10px 20px;
+.replayBtn {
+    padding: 10px 30px;
     background: white;
     color: #656565;
     border-radius: 9px;
+    margin-top: 20px;
     border: none;
 }
 
@@ -270,7 +287,8 @@ ul li::before {
 }
 
 .bgc2 {
-    background: rgba(29, 168, 43, 0.79);;
+    background: rgba(29, 168, 43, 0.79);
+    ;
 
 }
 
@@ -284,6 +302,30 @@ ul li::before {
     justify-content: center;
 }
 
-.pc-win {}
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-.you-win {}
+.wrapper {
+    text-align: center;
+    color: #FFF;
+}
+
+.trophy-img {
+    position: absolute;
+    top: 15%;
+}
+
+.greet {
+    font-size: 91px;
+    font-weight: 600;
+    letter-spacing: 9.1px;
+}
+
+.greet2 {
+    font-size: 41px;
+    font-weight: 600;
+    letter-spacing: 4.1px;
+}
