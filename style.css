@@ -1,10 +1,12 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: Roboto;
 }
 
 body {
     background: #8CC461;
+    overflow: hidden;
 }
 
 .playGround {}
@@ -200,7 +202,7 @@ ul li::before {
     width: 800px;
     margin: 0 auto;
     position: relative;
-    top: 125px;
+    /* top: 125px; */
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -208,13 +210,14 @@ ul li::before {
 
 }
 
-/* .paper-btn,
-.rock-btn,
-.scissor-btn {
+.result{
+    text-align: center;
+}
+.result-btns {
     top: 0;
     right: 0;
     left: 0;
-} */
+}
 
 .showResult p {
     color: white;
@@ -229,38 +232,57 @@ ul li::before {
     letter-spacing: 3.9px;
 }
 
-.showResult button{
+.showResult button {
     padding: 10px 20px;
     background: white;
-    color:#656565;
+    color: #656565;
     border-radius: 9px;
     border: none;
 }
 
-.btn-text{
+.btn-text {}
+
+.bg3 {
+    /* background: #53e950; */
+    border-radius: 50%;
+    width: 275px;
+    height: 275px;
+}
+
+.bg2 {
+    /* background: #21b81f; */
+    border-radius: 50%;
+    width: 225px;
+    height: 225px;
+}
+
+.bg1 {
+    /* background: #004429; */
+    border-radius: 50%;
+    width: 175px;
+    height: 175px;
+}
+
+.bgc3 {
+    background: rgba(46, 154, 37, 0.39);
 
 }
 
-.d1{
-background: #53e950;
-border-radius: 50%;
-width: 300px;
-height: 300px;
+.bgc2 {
+    background: rgba(29, 168, 43, 0.79);;
+
 }
-.d2{
-background: #21b81f;
-border-radius: 50%;
-width: 250px;
-height: 250px;
+
+.bgc1 {
+    background: #289827;
 }
-.d3{
-background: #004429;
-border-radius: 50%;
-width: 200px;
-height: 200px;
-}
-.effect{
+
+.effect {
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
+.pc-win {}
+
+.you-win {}

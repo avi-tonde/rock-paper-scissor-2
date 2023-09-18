@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
     <title>Rock | Paper | Scissors - JS Module test</title>
 </head>
 
 <body>
     <div class="playGround">
-
         <div class="scoreBoard">
             <div class="name">
                 <h5>ROCK</h5>
@@ -29,7 +29,7 @@
             </div>
         </div>
 
-        <div class="playArea">
+        <div class="playArea" id="playArea">
             <div class="l1 line"></div>
             <div class="l2 line"></div>
             <div class="l3 line"></div>
@@ -43,39 +43,35 @@
             <div class="scissor-btn btn" data-selection="scissor">
                 <img src="Resources/icons/scissor.svg" alt="" srcset="">
             </div>
-
-
         </div>
 
-        <div class="showResult">
+        <div class="showResult" id="showResult">
             <div class="box">
-                <!-- <p class="btn-text">YOU PICKED</p> -->
-                <div class="rock-btn  btn">
-                    <img src="Resources/icons/rock.svg" alt="" srcset="">
-                </div>
-            </div>
-            <div class="text">
-                <p><span>YOU WIN</span><br> AGAINST PC</p>
-                <button>PLAY AGAIN</button>
-            </div>
-            <div class="box" id="parent">
-                <div class="d1 effect" id="eff">
-                    <div class="d2 effect">
-                        <!-- <P class="btn-text">PC PICKED</P> -->
-                        <div class="d3 effect">
-            
-                            <div class="paper-btn btn">
-                                <img src="Resources/icons/paper.svg" alt="" srcset="">
+                <div class="bg3 effect you-win">
+                    <div class="bg2 effect you-win">
+                        <div class="bg1 effect you-win">
+                            <div class="rock-btn  btn result-btns">
+                                <img id="userChoice" src="" alt="" srcset="">
                             </div>
-            
                         </div>
                     </div>
                 </div>
-
-      
-
             </div>
-
+            <div class="result">
+                <p><span id="result"></span><br> AGAINST PC</p>
+                <button onclick="playAgain()">PLAY AGAIN</button>
+            </div>
+            <div class="box">
+                <div class="bg3 effect pc-win">
+                    <div class="bg2 effect pc-win">
+                        <div class="bg1 effect pc-win">
+                            <div class="paper-btn btn result-btns">
+                                <img id="pcChoice" src="" alt="" srcset="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </div>
