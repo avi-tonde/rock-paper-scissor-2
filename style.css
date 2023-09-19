@@ -9,8 +9,6 @@ body {
     overflow: hidden;
 }
 
-.playGround {}
-
 .scoreBoard {
     width: 800px;
     height: 158px;
@@ -19,6 +17,10 @@ body {
     margin: 20px auto;
     padding: 10px;
     display: flex;
+}
+
+.color {
+    border: 10px solid #BD00FF;
 }
 
 .name {
@@ -198,7 +200,7 @@ ul li::before {
 
 .btns:hover {
     background: rgb(132, 219, 124);
-  
+
 }
 
 .btn-container {
@@ -230,11 +232,7 @@ ul li::before {
     text-align: center;
 }
 
-.result-btns {
-    top: 0;
-    right: 0;
-    left: 0;
-}
+
 
 .showResult p {
     color: white;
@@ -258,24 +256,19 @@ ul li::before {
     border: none;
 }
 
-.btn-text {}
-
 .bg3 {
-    /* background: #53e950; */
     border-radius: 50%;
     width: 275px;
     height: 275px;
 }
 
 .bg2 {
-    /* background: #21b81f; */
     border-radius: 50%;
     width: 225px;
     height: 225px;
 }
 
 .bg1 {
-    /* background: #004429; */
     border-radius: 50%;
     width: 175px;
     height: 175px;
@@ -283,13 +276,10 @@ ul li::before {
 
 .bgc3 {
     background: rgba(46, 154, 37, 0.39);
-
 }
 
 .bgc2 {
     background: rgba(29, 168, 43, 0.79);
-    ;
-
 }
 
 .bgc1 {
@@ -300,6 +290,10 @@ ul li::before {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.effect img {
+    width: 130px;
 }
 
 .container {
@@ -328,4 +322,11 @@ ul li::before {
     font-size: 41px;
     font-weight: 600;
     letter-spacing: 4.1px;
+}
+
+.bg2 p {
+    font-size: 17px;
+    position: absolute;
+    top: 40px;
+    text-transform: uppercase;
 }

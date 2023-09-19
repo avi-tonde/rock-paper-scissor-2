@@ -2,26 +2,32 @@
 const userChoice = document.querySelectorAll('[data-selection]');
 userChoice.forEach(getUserSelection => {
     getUserSelection.addEventListener('click', e => {
-        const userSelection = getUserSelection.dataset.selection;  //get user selection      
-        const computerSelection = computerChoice(); //get computer selection
+        var userSelection = getUserSelection.dataset.selection;  //get user selection      
+        var computerSelection = computerChoice(); //get computer selection
 
         checkWinner(userSelection, computerSelection); // checking winner
 
-        document.getElementById("userChoice").src = "Resources/icons/" + userSelection + ".svg";
-        document.getElementById("pcChoice").src = "Resources/icons/" + computerSelection + ".svg";
+        document.getElementById("userChoice").src = "Resources/icons/" + userSelection + "1.svg";
+        document.getElementById("pcChoice").src = "Resources/icons/" + computerSelection + "1.svg";
+
     })
 })
-
 
 const playArea = document.getElementById('playArea');
 const showResult = document.getElementById('showResult');
 const result = document.getElementById('result');
+
 const pcScoreDom = document.getElementById('pcScore');
 const yourScoreDom = document.getElementById('yourScore');
+
 const modal = document.getElementById('rulesModal');
 const closeModal = document.getElementById('closeModal');
-const nextBtn = document.getElementById('next-btn');
 
+const nextBtn = document.getElementById('next-btn');
+const resultBtn = document.querySelectorAll('result-btns');
+
+
+// check for local storage
 if (!localStorage.getItem('score')) {
     let scores = { 'yourScore': 0, 'pcScore': 0 };
     localStorage.setItem("score", JSON.stringify(scores));
@@ -71,6 +77,8 @@ function checkWinner(userSelection, computerSelection) {
     }
 }
 
+
+// functions
 function computerWin() {
     playArea.style.display = "none";
     showResult.style.display = "flex";
@@ -89,63 +97,48 @@ function tie() {
     // updateResult('.you-win', 'add');
 }
 
+// Function to update the ui as per game results
 function updateResult(classname, action, winner) {
     if (action == 'add') {
-
         const elements = document.querySelectorAll(classname);
         elements[0].classList.add('bgc3');
         elements[1].classList.add('bgc2');
         elements[2].classList.add('bgc1');
         if (winner == 'you') {
-
             result.innerText = "YOU WIN";
             scores.yourScore = scores.yourScore + 1;
             localStorage.setItem('score', JSON.stringify(scores));
             nextBtn.style.display = "block";
-
-
         } else if (winner == 'pc') {
-
             result.innerText = "YOU LOST";
             scores.pcScore = scores.pcScore + 1;
             localStorage.setItem('score', JSON.stringify(scores));
-
         }
-
         pcScoreDom.innerText = scores.pcScore;
         yourScoreDom.innerText = scores.yourScore;
-
-
-
     }
     else {
         const elements = document.querySelectorAll('.effect');
         elements.forEach((element) => {
             element.classList.remove("bgc3", "bgc2", "bgc1");
         });
-
         result.innerText = " ";
     }
 }
 
-
-
+// To reset UI for new game
 function playAgain() {
     playArea.style.display = "flex";
     showResult.style.display = "none";
     nextBtn.style.display = "none";
 
     updateResult('', '');
-
-
 }
 
-
-
+// Modal Functionality
 function openModal() {
     rulesModal.style.display = "block";
 }
-
 closeModal.onclick = function closeModal() {
     rulesModal.style.display = "none";
 }

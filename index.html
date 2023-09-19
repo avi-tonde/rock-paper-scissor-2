@@ -11,6 +11,7 @@
 
 <body>
     <div class="playGround">
+        <!-- ScoreBoard -->
         <div class="scoreBoard">
             <div class="name">
                 <h5>ROCK</h5>
@@ -28,7 +29,7 @@
                 <p class="score1" id="yourScore"></p>
             </div>
         </div>
-
+        <!-- Play Area -->
         <div class="playArea" id="playArea">
             <div class="l1 line"></div>
             <div class="l2 line"></div>
@@ -44,15 +45,14 @@
                 <img src="Resources/icons/scissor.svg" alt="" srcset="">
             </div>
         </div>
-
+        <!-- Result section -->
         <div class="showResult" id="showResult">
             <div class="box">
                 <div class="bg3 effect you-win">
                     <div class="bg2 effect you-win">
+                        <p>You Picked</p>
                         <div class="bg1 effect you-win">
-                            <div class="rock-btn  btn result-btns">
-                                <img id="userChoice" src="" alt="" srcset="">
-                            </div>
+                            <img id="userChoice" src="" alt="" srcset="">
                         </div>
                     </div>
                 </div>
@@ -64,10 +64,11 @@
             <div class="box">
                 <div class="bg3 effect pc-win">
                     <div class="bg2 effect pc-win">
+                        <p>PC Picked</p>
                         <div class="bg1 effect pc-win">
-                            <div class="paper-btn btn result-btns">
-                                <img id="pcChoice" src="" alt="" srcset="">
-                            </div>
+
+                            <img id="pcChoice" src="" alt="" srcset="">
+
                         </div>
                     </div>
                 </div>
@@ -75,7 +76,7 @@
         </div>
 
     </div>
-
+    <!-- Rules Modal -->
     <div class="rules-popup" id="rulesModal">
         <button class="close-popup" id="closeModal">X</button>
         <h3>Game Rules</h3>
@@ -87,14 +88,12 @@
             <li>If both players lay down the same hand, each player lays down another hand</li>
         </ul>
     </div>
+
+    <!-- buttons for next page and rules model -->
     <div class="btn-container">
         <button class="rules-btn btns" id="rules-btn" onclick="openModal()">RULES</button>
-        <button class="next-btn btns" id="next-btn" onclick="location.pathname='hurray.html'">NEXT</button>    
+        <button class="next-btn btns" id="next-btn" onclick="location.pathname='hurray.html'">NEXT</button>
     </div>
-
-
-
-
     <script src="script.js"></script>
 </body>
 
